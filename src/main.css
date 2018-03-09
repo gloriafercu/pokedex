@@ -1,2 +1,21 @@
-.App-title {
-  color: red; }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif; }
+
+.input__search {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.input__name {
+  width: 70%;
+  height: 30px;
+  padding: 5px 8px;
+  font-size: inherit; }
+
+.pokemon__list {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  list-style-type: none; }
