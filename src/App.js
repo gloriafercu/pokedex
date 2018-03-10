@@ -1,36 +1,113 @@
-import React from 'react';
-import PokemonsList from './components/PokemonsList';
+import React from 'react'
 import './main.css';
+
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pokemons: []
+			pokemonArray: [],
+			pokemonId: [],
+			pokemonImg: [],
+			pokemonName: [],
+			pokemonType: []
 		};
 	}
 
-	componentDidMount() {
-		fetch('https://pokeapi.co/api/v2/pokemon/25/')
-		.then(response => response.json())
-		.then(json => {
-			this.setState({
-				pokemons: json
-			});
-			console.log(json);
-		});
-	}
+	const paco = (id ) => {
+		let pokemonArray = [];
+
+	  for (let i = 1; i <= 3; i++) {
+	    let url = `https://pokeapi.co/api/v2/pokemon/${id}`
+
+	    fetch(url)
+	      .then(res => res.json())
+	      .then(json =>
+					const pokemonObject = json;
+					pokemonArray.push(pokemonObject);
+					console.log('Este es' + pokemonObject);
+
+					this.setState({
+						pokemonArray: pokemonArray,
+						pokemonId: json.id,
+						pokemonImg: json.sprites.front_default,
+						pokemonName: json.name,
+						pokemonType: json.types[0].type.name
+					});
+				};
+			}
+
+
+
+// 	getPokemons(i) {
+// 		fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+// 		.then(response => response.json())
+// 		.then(json => {
+// 			let pokemonArray = [];
+// 			for (let i=1; i<= 3 ; i++) {
+// 			const pokemonObject = json;
+// 			pokemonArray.push(pokemonObject);
+// 			console.log('Este es' + pokemonObject);
+//
+// 			this.setState({
+// 				pokemonArray: pokemonArray,
+// 				pokemonId: json.id,
+// 				pokemonImg: json.sprites.front_default,
+// 				pokemonName: json.name,
+// 				pokemonType: json.types[0].type.name
+// 			});
+// 		});
+// 	};
+// }
+
+
+	// componentDidMount() {
+	// 	let pokemonArray = [];
+	// 	for (let i=1; i<= 3 ; i++) {
+	// 		fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+	// 		.then(response => response.json())
+	// 		.then(json => {
+	//
+	// 			const pokemonObject = json;
+	// 			pokemonArray.push(pokemonObject);
+	// 			console.log(pokemonArray);
+	//
+	//
+	//
+	// 			this.setState({
+	// 				pokemonArray: pokemonArray,
+	// 				pokemonId: json.id,
+	// 				pokemonImg: json.sprites.front_default,
+	// 				pokemonName: json.name,
+	// 				pokemonType: json.types[0].type.name
+	// 			});
+	// 		});
+	// 	};
+	// }
+
+
+
+
 
 	printPokemons() {
-		const listPokemons = this.state.pokemons;
-		// const listRepos = this.state.repositories.filter(item => item.language.toLowerCase().includes(this.state.select));
-		// const listReposRefilter = listRepos.filter(item => item.name.toLowerCase().includes(this.state.input));
-
 		return (
-			<PokemonsList group = {listPokemons} />
+			<ul className="pokemon__list">
 
+				<li className="pokemon__list--li">
+					<div className="pokemon__card">
+						<p className="pokemon__name">{this.state.pokemonName}</p>
+						<p className="pokemon__id">{this.state.pokemonId}</p>
+						<img src={this.state.pokemonImg} alt="pokemon"/>
+						<p className="pokemon__type">{this.state.pokemonType}</p>
+					</div>
+				</li>
+			</ul>
 		);
 	}
+
+
+
+
 
 	render() {
 		return (<div className="App">
@@ -41,7 +118,7 @@ class App extends React.Component {
 				<input type="text" className="input__name" placeholder="Search pokémons by name"/>
 			</div>
 
-			{ this.printPokemons () }
+			{ this.printPokemons() }
 
 		</div>);
 	}
