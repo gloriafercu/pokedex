@@ -17,7 +17,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		let pokemonArray = [];
-		for (let i=1; i<= 3 ; i++) {
+		for (let i=1; i<= 5 ; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(json => {
@@ -40,7 +40,7 @@ class App extends React.Component {
 	}
 
 	printPokemons() {
-		const listPokemons = this.state.pokemonArray.filter(item =>
+		const listPokemons = this.state.pokemonArray.sort((a,b) => a.id-b.id).filter(item =>
       item.name.toLowerCase().includes(this.state.valueInput)
     );
 

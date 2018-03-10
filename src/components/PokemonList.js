@@ -4,6 +4,7 @@ import PokemonCard from './PokemonCard';
 class PokemonList extends React.Component{
 	render() {
 		return (
+
 			<ul className="pokemon__list">
 				{ this.props.monster.map((list, index) =>
 					<li className="pokemon__list--li" key = {index}>
