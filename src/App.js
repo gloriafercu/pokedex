@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PokemonList from './components/PokemonList';
+import Search from './components/Search';
 import './main.css';
 
 
@@ -31,50 +33,34 @@ class App extends React.Component {
 	}
 
 	handleOnChange(e) {
-		const valueToShow = e.target.value;
+		const valueToShow = e.target.value.toLowerCase();
 		this.setState({
-			valueInput: valueToShow.toLowerCase()
+			valueInput: valueToShow
 		});
 	}
 
 	printPokemons() {
 		const listPokemons = this.state.pokemonArray.filter(item =>
       item.name.toLowerCase().includes(this.state.valueInput)
-    );;
+    );
 
 		return (
-			<ul className="pokemon__list">
-				{ listPokemons.map((list, index) =>
-					<li className="pokemon__list--li" key = {index}>
-						<div className="pokemon__card">
-							<p className="pokemon__name">{list.name}</p>
-							<p className="pokemon__id">{list.id}</p>
-							<img src={list.sprites.front_default} alt="pokemon"/>
-							<div className="pokemon__type">
-								{list.types.map((type, i) =>
-									<span key={i}> {list.types[i].type.name} </span>
-								)}
-							</div>
-						</div>
-					</li>)
-				}
-			</ul>
-
+			<PokemonList monster = {listPokemons}/>
 		);
 	}
 
 	render() {
 		return (
 			<div className="App">
+
 				<header className="App-header">
 					<h1 className="App-title">Pokémon Pokédex</h1>
 				</header>
 
-				<div className="input__search">
-					<input type="text" className="input__name" placeholder="Search pokémons by name" onChange = { this.handleOnChange }/>
-				</div>
-
-				{ this.printPokemons() }
+				<main className="wrapper">
+					<Search changeInput = {this.handleOnChange}/>
+					{ this.printPokemons() }
+				</main>
 
 			</div>
 		);
