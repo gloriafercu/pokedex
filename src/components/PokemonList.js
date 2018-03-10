@@ -14,7 +14,6 @@ class PokemonList extends React.Component{
 							picture = {list.sprites.front_default}
 							attack = {list.types}
 						/>
-
 					</li>)
 				}
 			</ul>

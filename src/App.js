@@ -1,6 +1,7 @@
 import React from 'react';
 import PokemonList from './components/PokemonList';
 import Search from './components/Search';
+import Pokeball from './images/pokeball.svg';
 import './main.css';
 
 
@@ -14,10 +15,9 @@ class App extends React.Component {
 		};
 	}
 
-
 	componentDidMount() {
 		let pokemonArray = [];
-		for (let i=1; i<= 5 ; i++) {
+		for (let i=1; i<= 25 ; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(json => {
@@ -54,7 +54,8 @@ class App extends React.Component {
 			<div className="App">
 
 				<header className="App-header">
-					<h1 className="App-title">Pokémon Pokédex</h1>
+					<h1 className="App-title">Pokédex</h1>
+					<img className="pokeball" src={Pokeball} alt="pokédex" />
 				</header>
 
 				<main className="wrapper">
