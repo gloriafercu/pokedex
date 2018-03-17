@@ -7,7 +7,7 @@ class PokemonList extends React.Component{
 			<section className="pokedex">
 				<ul className="pokemon__list">
 					{ this.props.monster.map((list, index) =>
-						<li className="pokemon__list--li" >
+						<li className="pokemon__list--li" key={index}>
 							<PokemonCard
 								namePokemon = {list.name}
 								idPokemon = {list.id}
@@ -19,13 +19,11 @@ class PokemonList extends React.Component{
 								weightPokemon = {list.weight}
 								heightPokemon = {list.height}
 								skills = {list.abilities}
+								evolutionPokemon= {this.props.evolutions}
 							/>
 						</li>)
 					}
-
 				</ul>
-
-
 			</section>
 		);
 	}

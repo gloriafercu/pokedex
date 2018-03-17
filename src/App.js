@@ -18,7 +18,8 @@ class App extends React.Component {
 	componentDidMount() {
 		let totalPokemon = [];
 		let evolutionPokemon = [];
-		for (let i=2; i<= 3 ; i++) {
+
+		for (let i=2; i<= 3; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(json => {
@@ -36,7 +37,7 @@ class App extends React.Component {
 				evolutionPokemon.push(evolutionObject);
 				console.log('evolutionObject: ', evolutionObject);
 				this.setState({
-					evolutionArray: evolutionPokemon.evolves_from_species
+					evolutionArray: evolutionPokemon.sort((a,b) => a.id-b.id)
 				});
 			})
 		};
@@ -52,20 +53,22 @@ class App extends React.Component {
 		});
 	}
 
+
+
 	printPokemons() {
-		const listPokemons = this.state.pokemonArray.filter(item =>
-      item.name.toLowerCase().includes(this.state.valueInput)
-    );
-		const listEvolutions = this.state.evolutionArray;
+		const listPokemons = this.state.pokemonArray.filter(item => item.name.toLowerCase().includes(this.state.valueInput)).sort((a,b) => a.id-b.id);
+		const listEvolutions = this.state.evolutionArray.map(elem=>elem.evolves_from_species.name);
+
 		console.log('listEvolutions', listEvolutions);
 
 		return (
+			<div>
+				<PokemonList
+					monster = {listPokemons}
+					evolutions = {listEvolutions}
+				/>
 
-			<PokemonList
-				monster = {listPokemons.sort((a,b) => a.id-b.id)}
-
-			/>
-
+			</div>
 		);
 	}
 

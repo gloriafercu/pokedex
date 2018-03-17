@@ -1,9 +1,9 @@
 import React from 'react';
 
-class PokemonCard extends React.Component{
+class PokemonCard extends React.Component {
 	render() {
 		return (
-			<article className="pokemon__card">
+			<div className="pokemon__card">
 				<p className="pokemon__id">#{this.props.idPokemon.toLocaleString('en-US', {minimumIntegerDigits: 2})}</p>
 				<img className="pokemon__picture" src={this.props.picture1}
 					alt={this.props.namePokemon}/>
@@ -27,17 +27,13 @@ class PokemonCard extends React.Component{
 				<p className="pokemon__height">Height: {this.props.heightPokemon}</p>
 				<div className="pokemon__abilities">
 					{this.props.skills.map((ability, i) =>
-						<span className="ability" key={i}> {this.props.skills[i].ability.name} </span>
-					)}
+						<span className="ability" key={i}>{this.props.skills[i].ability.name} </span>)}
 				</div>
-				{/* <div className="pokemon__evolution">
 
-					<span className="evolution"> {this.props.evolutionPokemon.name} </span>
-
-					</div>
-				*/}
-
-			</article>
+				<div className="pokemon__evolution" >
+					<span className="evolution">{this.props.evolutionPokemon}  </span>
+				</div>
+			</div>
 		);
 	}
 }
