@@ -11,26 +11,39 @@ class App extends React.Component {
 		this.handleOnChange = this.handleOnChange.bind(this);
 		this.state = {
 			pokemonArray: [],
+			evolutionArray: [],
 			valueInput: ''
 		};
 	}
-
 	componentDidMount() {
-		let pokemonArray = [];
-		for (let i=1; i<= 25 ; i++) {
+		let totalPokemon = [];
+		let evolutionPokemon = [];
+		for (let i=2; i<= 3 ; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(json => {
 				const pokemonObject = json;
-				pokemonArray.push(pokemonObject);
+				totalPokemon.push(pokemonObject);
 				console.log('pokemonObject: ', pokemonObject);
 				this.setState({
-					pokemonArray: pokemonArray
+					pokemonArray: totalPokemon
 				});
 			});
+			fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
+			.then(response => response.json())
+			.then(json => {
+				const evolutionObject = json;
+				evolutionPokemon.push(evolutionObject);
+				console.log('evolutionObject: ', evolutionObject);
+				this.setState({
+					evolutionArray: evolutionPokemon.evolves_from_species
+				});
+			})
 		};
-		console.log('pokemonArray: ', pokemonArray);
+		console.log('pokemonArray: ', totalPokemon);
+		console.log('evolutionArray: ', evolutionPokemon);
 	}
+
 
 	handleOnChange(e) {
 		const valueToShow = e.target.value.toLowerCase();
@@ -40,12 +53,19 @@ class App extends React.Component {
 	}
 
 	printPokemons() {
-		const listPokemons = this.state.pokemonArray.sort((a,b) => a.id-b.id).filter(item =>
+		const listPokemons = this.state.pokemonArray.filter(item =>
       item.name.toLowerCase().includes(this.state.valueInput)
     );
+		const listEvolutions = this.state.evolutionArray;
+		console.log('listEvolutions', listEvolutions);
 
 		return (
-			<PokemonList monster = {listPokemons}/>
+
+			<PokemonList
+				monster = {listPokemons.sort((a,b) => a.id-b.id)}
+
+			/>
+
 		);
 	}
 
