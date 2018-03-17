@@ -11,21 +11,12 @@ class PokemonList extends React.Component{
 							<PokemonCard
 								namePokemon = {list.name}
 								idPokemon = {list.id}
-								picture1 = {list.sprites.back_default}
-								picture2 = {list.sprites.back_shiny}
-								picture3 = {list.sprites.front_default}
-								picture4 = {list.sprites.front_shiny}
+								picture = {list.sprites.front_default}
 								attack = {list.types}
-								weightPokemon = {list.weight}
-								heightPokemon = {list.height}
-								skills = {list.abilities}
 							/>
 						</li>)
 					}
-
 				</ul>
-
-
 			</section>
 		);
 	}
