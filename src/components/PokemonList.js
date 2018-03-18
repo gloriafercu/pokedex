@@ -1,6 +1,6 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import {Link, Route, Switch} from 'react-router-dom';
+
 
 class PokemonList extends React.Component{
 	render() {
@@ -12,10 +12,10 @@ class PokemonList extends React.Component{
 							<PokemonCard
 								namePokemon = {list.name}
 								idPokemon = {list.id}
-								picture1 = {list.sprites.back_default}
-								picture2 = {list.sprites.back_shiny}
-								picture3 = {list.sprites.front_default}
-								picture4 = {list.sprites.front_shiny}
+								picture1 = {list.sprites.front_default}
+								picture2 = {list.sprites.back_default}
+								picture3 = {list.sprites.front_shiny}
+								picture4 = {list.sprites.back_shiny}
 								attack = {list.types}
 								weightPokemon = {list.weight}
 								heightPokemon = {list.height}
