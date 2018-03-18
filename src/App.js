@@ -24,7 +24,7 @@ class App extends React.Component {
 				fetch(details.species.url)
 				.then(response => response.json())
 				.then((evolution)=> {
-					if (evolution.evolves_from_species) {
+					if (evolution.evolves_from_species != null) {
 						details.evolutionName = evolution.evolves_from_species.name;
 					}
 					totalPokemon.push(details);
