@@ -17,8 +17,7 @@ class App extends React.Component {
 	}
 	componentDidMount() {
 		let totalPokemon = [];
-
-		for (let i=1; i<= 3; i++) {
+		for (let i=1; i<= 4; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(details => {
@@ -35,7 +34,7 @@ class App extends React.Component {
 				});
 			})
 		}
-		console.log('pokemonArray: ', totalPokemon);
+		// console.log('pokemonArray: ', totalPokemon);
 	}
 
 	handleOnChange(e) {
@@ -53,7 +52,6 @@ class App extends React.Component {
 				<PokemonList
 					monster = {listPokemons}
 				/>
-
 			</div>
 		);
 	}
