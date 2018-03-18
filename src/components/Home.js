@@ -1,4 +1,6 @@
 import React from 'react';
+import PokemonList from './PokemonList';
+import Search from './Search';
 
 class Home extends React.Component {
 	constructor(props) {
@@ -6,12 +8,11 @@ class Home extends React.Component {
 		this.handleOnChange = this.handleOnChange.bind(this);
 		this.state = {
 			pokemonArray: [],
-			valueInput: ''
+			valueInput: '',
 		};
 	}
 	componentDidMount() {
 		let totalPokemon = [];
-
 		for (let i=1; i<= 3; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
@@ -41,7 +42,6 @@ class Home extends React.Component {
 
 	printPokemons() {
 		const listPokemons = this.state.pokemonArray.filter(item => item.name.toLowerCase().includes(this.state.valueInput)).sort((a,b) => a.id-b.id);
-
 		return (
 			<div>
 				<PokemonList
