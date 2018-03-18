@@ -27,11 +27,10 @@ class PokemonCard extends React.Component {
 				<p className="pokemon__height">Height: {this.props.heightPokemon}</p>
 				<div className="pokemon__abilities">
 					{this.props.skills.map((ability, i) =>
-						<span className="ability" key={i}>{this.props.skills[i].ability.name} </span>)}
+						<span className="ability" key={i}>Abilities: {this.props.skills[i].ability.name} </span>)}
 				</div>
-
 				<div className="pokemon__evolution" >
-					<span className="evolution">{this.props.evolutionPokemon}  </span>
+					<span className="evolution">{this.props.evolutionPokemon? `Evolves from: ${this.props.evolutionPokemon}`: ''}  </span>
 				</div>
 			</div>
 		);

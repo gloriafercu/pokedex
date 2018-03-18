@@ -19,7 +19,7 @@ class PokemonList extends React.Component{
 								weightPokemon = {list.weight}
 								heightPokemon = {list.height}
 								skills = {list.abilities}
-								evolutionPokemon= {this.props.evolutions}
+								evolutionPokemon= {list.evolutionName}
 							/>
 						</li>)
 					}
