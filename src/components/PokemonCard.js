@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, Route, Switch} from 'react-router-dom';
 
 class PokemonCard extends React.Component {
 	render() {

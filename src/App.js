@@ -1,7 +1,8 @@
 import React from 'react';
 import PokemonList from './components/PokemonList';
+import Header from './components/Header';
 import Search from './components/Search';
-import Pokeball from './images/pokeball.svg';
+
 import './main.css';
 
 
@@ -60,17 +61,11 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-
-				<header className="App-header">
-					<h1 className="App-title">Pokédex</h1>
-					<img className="pokeball" src={Pokeball} alt="pokédex" />
-				</header>
-
+				<Header />
 				<main className="wrapper">
 					<Search changeInput = {this.handleOnChange}/>
 					{ this.printPokemons() }
 				</main>
-
 			</div>
 		);
 	}
