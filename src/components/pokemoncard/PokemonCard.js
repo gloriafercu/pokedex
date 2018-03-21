@@ -19,8 +19,8 @@ class PokemonCard extends React.Component {
 						)}
 					</div>
 					<div className="pokemon__evolution" >
-						<span className="evolution__title">{pokemon.evolutionPokemon? `Evolves from: `: ''}  </span>
-						<span className="evolution">{pokemon.evolutionPokemon? `${pokemon.evolutionPokemon}`: ''}  </span>
+						<span className="evolution__title">{pokemon.evolutionName? `Evolves from: `: ''}  </span>
+						<span className="evolution">{pokemon.evolutionName? `${pokemon.evolutionName}`: ''}  </span>
 					</div>
 				</Link>
 
