@@ -1,15 +1,12 @@
 import React from 'react';
-import PokemonList from './components/PokemonList';
-import Header from './components/Header';
-import Search from './components/Search';
-
-import './main.css';
-
+import PokemonList from '../components/pokemonlist/PokemonList';
+import Header from '../components/header/Header';
+import Search from '../components/search/Search';
+import './app.css';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleOnChange = this.handleOnChange.bind(this);
 		this.state = {
 			pokemonArray: [],
 			valueInput: ''
@@ -17,7 +14,7 @@ class App extends React.Component {
 	}
 	componentDidMount() {
 		let totalPokemon = [];
-		for (let i=1; i<= 25; i++) {
+		for (let i=1; i<= 3; i++) {
 			fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
 			.then(response => response.json())
 			.then(details => {
@@ -34,7 +31,6 @@ class App extends React.Component {
 				});
 			})
 		}
-		// console.log('pokemonArray: ', totalPokemon);
 	}
 
 	handleOnChange(e) {
@@ -61,7 +57,7 @@ class App extends React.Component {
 			<div className="App">
 				<Header />
 				<main className="wrapper">
-					<Search changeInput = {this.handleOnChange}/>
+					<Search changeInput = {e => this.handleOnChange(e)}/>
 					{ this.printPokemons() }
 				</main>
 			</div>

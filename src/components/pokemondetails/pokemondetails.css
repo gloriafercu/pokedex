@@ -1,0 +1,127 @@
+.pokemon__details__background {
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+}
+.pokemon__details__card {
+	box-sizing: border-box;
+	background-color: #fff;
+	padding: 30px;
+	position: absolute;
+	border-radius: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	min-width: 600px;
+}
+.picture {
+	display: flex;
+	align-self: center;
+	justify-content: center;
+}
+.link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	text-decoration: none;
+	color: inherit;
+}
+.link.btn {
+	align-items: flex-end;
+}
+.button--close {
+	position: absolute;
+	display: block;
+	background-color: #941D1D;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+}
+.button--close .btn-x {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	line-height: 30px;
+	font-size: 20px;
+	color: #fff;
+}
+.info {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 20px;
+}
+.cover{
+	position: relative;
+	text-align: center;
+}
+.details__id{
+	position: absolute;
+	font-size: 20px;
+	right: 0px;
+	color: #E53D00;
+	font-weight: bold;
+}
+.front_default {
+	width: 140px;
+}
+.front_shiny,
+.back_shiny {
+	grid-column: 2/3;
+}
+.info__details {
+	grid-row: 2/4;
+}
+.pokemon__name__details {
+	margin-bottom: 25px;
+	font-weight: bold;
+	font-size: 34px;
+	font-family: 'Ceviche One', cursive;
+	color: #941D1D;
+	letter-spacing:1px;
+	text-align: center;
+}
+.pokemon__type__details {
+	display: flex;
+	margin-bottom: 15px;
+	justify-content: space-around;
+	width: 100%;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+.box__details {
+	padding: 5px 10px;
+	color:#fff;
+	border-radius: 10px;
+	margin:10px;
+}
+.info__card {
+	background-color: #D4D695;
+	font-size: 18px;
+	padding: 5px;
+	border-radius: 5px;
+}
+.pokemon__abilities,
+.pokemon__weight,
+.pokemon__height {
+ margin: 0 10px;
+ color:#41422E;
+ padding:10px 20px;
+ border: 0;
+ font-weight: bold;
+}
+.ability {
+	padding: 0 2px;
+	font-weight: normal;
+}
+
+.weight__detail,
+.ability,
+.height__detail {
+ font-weight: bold;
+}

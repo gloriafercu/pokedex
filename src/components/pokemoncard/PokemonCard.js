@@ -1,6 +1,7 @@
 import React from 'react';
-import PokemonDetails from './PokemonDetails';
+import PokemonDetails from '../pokemondetails/PokemonDetails';
 import {Link, Route, Switch} from 'react-router-dom';
+import './pokemoncard.css';
 
 class PokemonCard extends React.Component {
 	render() {

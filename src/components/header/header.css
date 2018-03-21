@@ -1,0 +1,28 @@
+.App-header {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	height: 100px;
+	background-color: #347FC4;
+	width: 100%;	
+}
+.App-title {
+	color: #FFF;
+	text-align: center;
+	font-family: 'Pokemon Solid';
+	font-size: 50px;
+	letter-spacing: 5px;
+	transform: rotate(-10deg);
+}
+.pokeball {
+	width: 70px;
+	padding: 0 20px;
+	animation: loading 10s linear infinite;
+}
+@keyframes loading {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}

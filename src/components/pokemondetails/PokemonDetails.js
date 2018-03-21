@@ -1,6 +1,7 @@
 import React from 'react';
-import App from './../App';
+import App from './../../app/App';
 import {Link, Route, Switch} from 'react-router-dom';
+import './pokemondetails.css';
 
 class PokemonDetails extends React.Component{
 	render() {
@@ -31,10 +32,10 @@ class PokemonDetails extends React.Component{
 								<img className="back_shiny" src={this.props.imgBackS} alt={this.props.nameDetails} />
 							</div>
 							<div className="info__details">
-								<p className="pokemon__name">{this.props.nameDetails}</p>
-								<div className="pokemon__type">
+								<p className="pokemon__name__details">{this.props.nameDetails}</p>
+								<div className="pokemon__type__details">
 									{this.props.attackDetails.map((type, i) =>
-										<span className={`box box--${this.props.attackDetails[i].type.name.toLowerCase()}`} key={i}> {this.props.attackDetails[i].type.name} </span>
+										<span className={`box__details box--${this.props.attackDetails[i].type.name.toLowerCase()}`} key={i}> {this.props.attackDetails[i].type.name} </span>
 									)}
 								</div>
 								<div className="info__card">

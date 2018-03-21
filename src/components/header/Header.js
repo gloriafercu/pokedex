@@ -1,5 +1,6 @@
 import React from 'react';
-import Pokeball from './../images/pokeball.svg';
+import Pokeball from './../../images/pokeball.svg';
+import './header.css';
 
 class Header extends React.Component{
 	render() {

@@ -1,0 +1,21 @@
+.input__search {
+	display: flex;
+	margin-bottom: 40px;
+	width: 100%;
+	max-width: 1075px;
+	justify-content: center;
+}
+.input__name {
+	width: 100%;
+	border-radius: 5px;
+	font-size: inherit;
+	outline: none;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 2px solid #347FC4;
+}
+@media all and (min-width: 560px) {
+	.input__name {
+		width: 100%;
+	}
+}
