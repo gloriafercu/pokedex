@@ -1,4 +1,4 @@
-# Prueba técnica 1: Pokedex
+# Prueba técnica 1 y 2: Pokedex
 Petición a una API con React.
 
 * Se ha realizado una sencilla webapp usando React y el API de pokemon PokeAPI https://pokeapi.co/ que nos devuelve un listado de Pokemons donde se indica su foto, su nombre, número, tipo (o tipos), habilidades, peso y altura.
